@@ -1,0 +1,39 @@
+- 최적화
+  1) 정적 분석 : 코드들의 상태만 보고 판단하는 정적인 방법
+  2) 동적 분석 : 툴의 도움을 받아 최적화 시키는 방법
+    - react tools인 Components highlight를 이용해 최적화
+
+*동적 분석*
+1. DiaryList 
+  - onChange 같은 함수는 useCallback 함수를 이용해 작성되었지만
+  useState(또는 useCallback)를 이용해 바뀌기 때문에 React.memo를 이용하여 최적화가 가능하다.
+  하지만, 함수 즉, const handle = () => {} 와 같이 작성되면,
+  함수 자체가 리렌더링 되어 React.memo를 사용해도 최적화 되지 않는다.
+
+2. DiaryItem
+  - filter를 적용하면 DiaryItem의 순서만 바뀌면 되는 상황에서
+  DiaryItem에도 re-rendering이 일어난다.
+  따라서, DiaryItem 자체에 React.memo를 걸어 re-rendering을 방지한다.
+
+3. DiaryEditor -> EmotionItem
+  - 함수로 onClick을 함수로 작성하여 React.memo를 작성해도 re-rendering이 일어난다.
+
+  <변경전>
+  const handleClickEmote = (emotion) => {
+    setEmotion(emotion);
+  };
+  ...
+  <EmotionItem
+    key={item.emotion_id}
+    {...item}
+    onClick={handleClickEmote}
+    isSelected={item.emotion_id === emotion}
+  />
+
+  <변경 후>
+  - emotion을 받아서 setEmotion(emotion)을 하기 때문에,
+  가장 최신의 state를 참조할 필요가 없다.
+  따라서, 함수형 업데이트를 전달할 필요 X
+  const handleClickEmote = useCallback((emotion) => {
+    setEmotion(emotion);
+  }, []);

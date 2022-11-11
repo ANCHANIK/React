@@ -1,0 +1,378 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap");
+/* 
+font-family: 'Nanum Pen Script', cursive;
+font-family: 'Yeon Sung', cursive;
+*/
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nanum Pen Script", cursive;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .App {
+    width: 90vw;
+  }
+}
+
+#root {
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+/* MyButton */
+.MyButton {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 18px;
+
+  white-space: nowrap;
+  /*버튼 안의 글자가 잘려서 두 줄 되는 걸 방지*/
+}
+.MyButton_default {
+  background-color: #ececec;
+  color: #000;
+}
+.MyButton_positive {
+  background-color: #64c964;
+  color: #fff;
+}
+.MyButton_negative {
+  background-color: #fb565f;
+  color: #fff;
+}
+
+/* Header */
+header {
+  padding: 20px 0;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header > div {
+  display: flex;
+}
+
+header .head_text {
+  width: 50%;
+  font-size: 25px;
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+  justify-content: start;
+}
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
+}
+
+header button {
+  font-family: "Nanum Pen Script", cursive;
+}
+
+/* Diary List */
+.DiaryList .menu_wrapper {
+  margin: 20px 0 30px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.DiaryList .menu_wrapper .right_col {
+  flex-grow: 1;
+  /* 
+  flex-grow: 1; 하게 되면, 부모의 flex 속성의 남은 공간을 전체 차지함.
+  */
+}
+
+.DiaryList .menu_wrapper .right_col button {
+  width: 100%;
+}
+
+.DiaryList .ControlMenu {
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 18px;
+}
+
+/* Diary Item */
+.DiaryItem {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #e2e2e2;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.DiaryItem .emotion_img_wrapper {
+  display: flex;
+  justify-content: center;
+
+  min-width: 120px;
+  height: 80px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.DiaryItem .emotion_img_wrapper_1 {
+  background-color: #64c964;
+}
+.DiaryItem .emotion_img_wrapper_2 {
+  background-color: #9dd772;
+}
+.DiaryItem .emotion_img_wrapper_3 {
+  background-color: #fdce17;
+}
+.DiaryItem .emotion_img_wrapper_4 {
+  background-color: #fd8446;
+}
+.DiaryItem .emotion_img_wrapper_5 {
+  background-color: #fd565f;
+}
+
+.DiaryItem .emotion_img_wrapper img {
+  width: 50%;
+}
+
+.DiaryItem .info_wrapper {
+  flex-grow: 1;
+
+  margin-left: 20px;
+
+  cursor: pointer;
+}
+
+.DiaryItem .diary_date {
+  margin-bottom: 5px;
+
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.DiaryItem .diary_content_preview {
+  font-size: 18px;
+}
+
+.DiaryItem .btn_wrapper {
+  min-width: 70px;
+}
+
+/* Diary Editor */
+.DiaryEditor {
+}
+
+.DiaryEditor section {
+  margin-bottom: 40px;
+}
+
+.DiaryEditor h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.DiaryEditor .input_date {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 20px;
+}
+
+.DiaryEditor .emotion_list_wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 2%;
+}
+
+.DiaryEditor textarea {
+  padding: 20px;
+
+  width: 100%;
+  min-height: 200px;
+
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 20px;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Emotion Item */
+.EmotionItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 0;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  font-size: 18px;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+}
+
+.EmotionItem_on_1 {
+  background-color: #64c964;
+  color: #fff;
+}
+.EmotionItem_on_2 {
+  background-color: #9dd772;
+  color: #fff;
+}
+.EmotionItem_on_3 {
+  background-color: #fdce17;
+  color: #fff;
+}
+.EmotionItem_on_4 {
+  background-color: #fd8446;
+  color: #fff;
+}
+.EmotionItem_on_5 {
+  background-color: #fd565f;
+  color: #fff;
+}
+
+/* Diary */
+.DiaryPage {
+}
+
+.DiaryPage section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  width: 100%;
+
+  margin-bottom: 100px;
+}
+
+.DiaryPage h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.DiaryPage .diary_img_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #ececec;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 5px;
+}
+
+.DiaryPage .diary_img_wrapper_1 {
+  background-color: #64c964;
+}
+.DiaryPage .diary_img_wrapper_2 {
+  background-color: #9dd772;
+}
+.DiaryPage .diary_img_wrapper_3 {
+  background-color: #fdce17;
+}
+.DiaryPage .diary_img_wrapper_4 {
+  background-color: #fd8446;
+}
+.DiaryPage .diary_img_wrapper_5 {
+  background-color: #fd565f;
+}
+
+.DiaryPage .emotion_descript {
+  font-size: 25px;
+  color: #fff;
+}
+
+.DiaryPage .diary_content_wrapper {
+  width: 100%;
+
+  background-color: #ececec;
+  border-radius: 5px;
+
+  word-break: keep-all;
+  /*
+    word-break: keep-all; : 줄바꿈이 일어났을 때 단어를 쪼개짐 방지
+  */
+  overflow-wrap: break-word;
+  /*
+    overflow-wrap: break-word; : 해당 요소 안의 요소가 많아지거나 길어질 경우,
+    text 를 끊어서 아랫줄로 줄바꿈을 강제하는 명령어
+  */
+}
+
+.DiaryPage .diary_content_wrapper p {
+  padding: 20px;
+
+  font-family: "Yeon Sung", cursive;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 2;
+}

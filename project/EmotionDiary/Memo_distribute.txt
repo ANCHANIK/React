@@ -1,0 +1,21 @@
+배포 준비
+
+1. Chrome -> firebase
+
+1. cmd 관리자 모드 실행
+2. npm run build
+3. firebase deploy
+4. 배포 완료
+
+    <!-- open gragh 설정 -->
+    <meta property="og:image" content="%PUBLIC_URL%/assets/thumbnail.png" />
+    <!-- 공유시 보여질 썸네일 이미지 설정 -->
+    <meta property="og:site_name" content="감정 일기장" />
+    <!-- 공유시 보여일 썸네일 이름 -->
+    <meta property="og:description" content="나만의 작은 감정 일기장" />
+    <!-- 공유시 보여일 썸네일 이름 하단 추가 문구 -->
+
+    * 카톡 공유시 설정값이 캐시때문에 안보일 수 있음.
+    -> 카카오톡 개발자 (https://developers.kakao.com/tool/debugger/sharing)
+    로그인 후 공유디버거
+    -> url 에 배포 url 입력 후 캐시 초기화 진행

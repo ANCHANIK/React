@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap");
+/* 
+font-family: 'Nanum Pen Script', cursive;
+font-family: 'Yeon Sung', cursive;
+*/
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nanum Pen Script", cursive;
+  min-height: 100vh;
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  /*
+  브라우저 너비가 650px 이상일 때 적용
+  ex) 650px 이상일 때 배경 검정
+  body {
+    background-color: #000;
+  }
+   */
+  .App {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  /*
+  브라우저 너비가 650px 이히일 때 적용
+  ex) 650px 이하일 때 배경 빨강
+  body {
+    background-color: red;
+  }
+   */
+  .App {
+    width: 90vw; /*화면의 90%만 차지*/
+  }
+}
+
+#root {
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+/* MyButton */
+.MyButton {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 18px;
+
+  white-space: nowrap;
+  /*버튼 안의 글자가 잘려서 두 줄 되는 걸 방지*/
+}
+.MyButton_default {
+  background-color: #ececec;
+  color: #000;
+}
+.MyButton_positive {
+  background-color: #64c964;
+  color: #fff;
+}
+.MyButton_negative {
+  background-color: #fb565f;
+  color: #fff;
+}
+
+/* Header */
+header {
+  padding: 20px 0;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header > div {
+  display: flex;
+}
+
+header .head_text {
+  width: 50%;
+  font-size: 25px;
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+  justify-content: start;
+}
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
+}
+
+header button {
+  font-family: "Nanum Pen Script", cursive;
+}
+
+/* Diary List */
+.DiaryList .menu_wrapper {
+  background-color: red;
+  margin-top: 20px 0 30px;
+
+  display: flex;
+}
