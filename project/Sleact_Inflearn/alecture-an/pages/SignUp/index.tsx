@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from "react";
 import { Form, Label, Input, LinkContainer, Header, Button } from './styles';
 
 const SignUp = () => {
@@ -6,6 +6,11 @@ const SignUp = () => {
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
+  const onChangeEmail = useCallback( () => {},[]);
+  const onChangeNickname = useCallback( () => {},[]);
+  const onChangePassword = useCallback( () => {},[]);
+  const onChangePasswordCheck = useCallback( () => {},[]);
+  const onSubmit = useCallback( () => {}, []);
 
   return (
     <div id="container">
@@ -40,16 +45,16 @@ const SignUp = () => {
               onChange={onChangePasswordCheck}
             />
           </div>
-          {mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}
-          {!nickname && <Error>닉네임을 입력해주세요.</Error>}
-          {signUpError && <Error>{signUpError}</Error>}
-          {signUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}
+          {/*{mismatchError && <Error>비밀번호가 일치하지 않습니다.</Error>}*/}
+          {/*{!nickname && <Error>닉네임을 입력해주세요.</Error>}*/}
+          {/*{signUpError && <Error>{signUpError}</Error>}*/}
+          {/*{signUpSuccess && <Success>회원가입되었습니다! 로그인해주세요.</Success>}*/}
         </Label>
         <Button type="submit">회원가입</Button>
       </Form>
       <LinkContainer>
         이미 회원이신가요?&nbsp;
-        <Link to="/login">로그인 하러가기</Link>
+        <a href="/login">로그인 하러가기</a>
       </LinkContainer>
     </div>
   );

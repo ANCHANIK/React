@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@emotion/babel-plugin": "^11.10.5"
+  }
+}
