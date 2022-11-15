@@ -6,11 +6,30 @@ const SignUp = () => {
   const [nickname, setNickname] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
-  const onChangeEmail = useCallback( () => {},[]);
-  const onChangeNickname = useCallback( () => {},[]);
-  const onChangePassword = useCallback( () => {},[]);
-  const onChangePasswordCheck = useCallback( () => {},[]);
-  const onSubmit = useCallback( () => {}, []);
+  const [mismatchError, setMismatchError] = useState(false);
+
+  const onChangeEmail = useCallback( (e) => {
+    setEmail(e.target.value);
+  },[]);
+
+  const onChangeNickname = useCallback( (e) => {
+    setNickname(e.target.value);
+  },[]);
+
+  const onChangePassword = useCallback( (e) => {
+    setPassword(e.target.value);
+    setMismatchError(e.target.value === passwordCheck);
+  },[passwordCheck]);
+
+  const onChangePasswordCheck = useCallback( (e) => {
+    setPasswordCheck(e.target.value);
+    setMismatchError(e.target.value === password);
+  },[password]);
+
+  const onSubmit = useCallback( (e) => {
+    e.preventDefault();
+    console.log(email, nickname, password, passwordCheck);
+  }, [email, nickname, password, passwordCheck]);
 
   return (
     <div id="container">
