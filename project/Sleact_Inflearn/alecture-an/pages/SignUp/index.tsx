@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import axios from "axios";
 import { Form, Error, Label, Input, LinkContainer, Header, Button } from './styles';
 import useInput from "@hooks/useInput";
 
@@ -32,6 +33,19 @@ const SignUp = () => {
 
     if(!mismatchError && nickname){
       console.log('서버로 회원가입하기');
+      axios.post('http://localhost:3095/api/users', {     // back port num : 3095
+        email,
+        nickname,
+        password,
+      })
+        .then((res) => {
+          console.log(res);
+        }) // 성공
+        .catch((err) => {
+          console.log(err.response);
+        }) // 실패
+        .finally(() => {}); // 성공하든 실패하든 공통적으로 실행
+
     }
     console.log(email, nickname, password, passwordCheck);
   }, [email, nickname, password, passwordCheck, mismatchError]);
