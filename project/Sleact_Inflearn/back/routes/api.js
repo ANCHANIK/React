@@ -790,6 +790,7 @@ router.get("/users", (req, res, next) => {
 });
 
 router.post("/users", isNotLoggedIn, async (req, res, next) => {
+  console.log('==============',req.body)
   try {
     const exUser = await User.findOne({
       where: {
@@ -807,8 +808,8 @@ router.post("/users", isNotLoggedIn, async (req, res, next) => {
     });
     const sleact = await Workspace.findOne({ where: { id: 1 } });
     const channel = await Channel.findOne({ where: { id: 1 } });
-    await sleact.addMembers(user);
-    await channel.addMembers(user);
+    //await sleact.addMembers(user);
+    //await channel.addMembers(user);
     res.status(201).send("ok");
   } catch (error) {
     console.error(error);

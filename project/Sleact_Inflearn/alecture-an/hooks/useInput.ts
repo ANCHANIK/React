@@ -9,6 +9,9 @@ const useInput = <T = any>(initialData: T): ReturnTypes<T> => {
   // T = type임
   // T 가 String이면 return 값도 string
 
+  // any 대신 => ChangeEvent<HTMLInputElement>,
+  // e.target.value 대신 => e.target.value as unknown as T
+
   const [value, setValue] = useState(initialData);
   const handler = useCallback((e: any) => {
     setValue(e.target.value)
