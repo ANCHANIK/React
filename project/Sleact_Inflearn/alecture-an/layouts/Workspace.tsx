@@ -6,6 +6,7 @@ import { Redirect } from 'react-router';
 
 const Workspace: FC = ({ children }) => {
   // VFC : children을 안쓰는 컴포넌트의 타입 ( <-> FC)
+  // children : <Workspace></Workspace> 안에 들어있는 jsx
   const {data, error, isValidating, mutate} = useSWR('http://localhost:3095/api/users', fetcher);
 
   const onLogout = useCallback( () => {
@@ -14,12 +15,12 @@ const Workspace: FC = ({ children }) => {
         withCredentials: true,
       })
       .then(() => {
-        mutate();
+        mutate(false);
       })
   },[])
   
   if (!data) {
-    return <Redirect to={"/login"} />
+    return <Redirect to="/login" />
   }
 
   return (

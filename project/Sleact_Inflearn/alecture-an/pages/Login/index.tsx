@@ -15,6 +15,9 @@ const Login = () => {
   // 로그인 되어 있지 않으면 false
   // 다른 탭으로 갔다가 돌아와도 swr이 데이터를 보내 유지해줌
   // isValidating (revalidate, 구버전) : 내가 원할 때 api 호출
+  // revalidate 와 mutate 차이점?
+  // revalidate : 서버로 요청 보내서 데이터를 다시 가져오는 것
+  // mutate : 서버로 요청 안보내고 data를 수정하는 것. 클라이언트에서 직접 데이터 조작 가
 
   const [logInError, setLoginError] = useState(false);
   const [email, onChangeEmail] = useInput('');
@@ -32,8 +35,8 @@ const Login = () => {
             withCredentials: true,
           }
         )
-        .then(async (res) => {
-          await mutate();
+        .then( (res) => {
+          mutate(res.data, false);
 
         })
         .catch((error) => {
@@ -43,13 +46,13 @@ const Login = () => {
     [email, password]
   );
 
-  // 돔이 잠깐 깜빡이며 보일때
+  // 돔이 잠깐 깜빡이며 보일 때
   if (data === undefined) {
     return <>로딩중...</>
   }
 
   if (data) {
-    return <Redirect to={"/workspace/channel"} />
+    return <Redirect to="/workspace/channel" />
   }
 
 

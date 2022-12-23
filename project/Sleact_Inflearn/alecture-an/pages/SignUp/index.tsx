@@ -61,8 +61,13 @@ const SignUp = () => {
     }
   }, [email, nickname, password, passwordCheck, mismatchError]);
 
+  if (data === undefined) {
+    return <>...로딩중</>
+  }
+
+  // return 들은 항상 hooks 밑에 있어야 한다.
   if (data) {
-    return <Redirect to={"/workspace/channel"} />
+    return <Redirect to="/workspace/channel" />
   }
 
   return (
